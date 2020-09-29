@@ -24,5 +24,33 @@ Route::get('/login', function ()
 
 Route::get('/lowongan/create', function ()
 {
-    return view('lowongan/create');
+    $kategori = [
+        'it' => 'IT', 
+        'marketing' => 'Marketing'
+    ];
+
+    $keahlian = [
+        'FE' => 'Frontend Engineer',
+        'BE' => 'Backend Engineer',
+        'QA' => 'QA Engineer',
+    ];
+
+    $data = [
+        'kategori' => $kategori,
+        'keahlian' => $keahlian
+    ];
+
+    return view('lowongan/create', compact('data'));
+});
+
+Route::get('/lowongan', function () {
+
+    $pekerjaan = [
+        ['judul' => 'Frontend Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur'],
+        ['judul' => 'Frontend Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur'],
+        ['judul' => 'Frontend Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur'],
+        ['judul' => 'Frontend Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur']
+    ];
+
+    return view('lowongan/index', compact('pekerjaan'));
 });

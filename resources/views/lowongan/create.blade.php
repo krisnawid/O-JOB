@@ -3,10 +3,14 @@
 @section('content')
 @include('layouts.include.nav')
 
+<link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.26.0/slimselect.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.26.0/slimselect.min.js"></script>
+
 <div class="bg vh-100">
     <div class="container">
         <h2 class="pt-4">Buat Lowongan</h2>
-        <form class="mt-5 px-5">
+        <form class="mt-5 px-5" method="POST">
             <div class="form-row">
                 <div class="col-8">
                     <label for="judul">Judul</label>
@@ -16,8 +20,9 @@
                     <label for="kategori">Kategori</label>
                     <select id="kategori" class="form-control">
                         <option selected>Pilih...</option>
-                        <option>IT</option>
-                        <option>Marketing</option>
+                        @foreach ($data['kategori'] as $key => $kategori)
+                        <option value="{{$key}}">{{$kategori}}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -26,9 +31,9 @@
 
             <label for="keahlian" class="mt-4">Keahlian</label>
             <select id="keahlian" multiple>
-                <option value="FE">Frontend Engineer</option>
-                <option value="BE">Backend Engineer</option>
-                <option value="QA">QA Engineer</option>
+                @foreach ($data['keahlian'] as $key => $keahlian)
+                <option value="{{$key}}">{{$keahlian}}</option>
+                @endforeach
             </select>
 
             <div class="text-right mt-4">
@@ -44,16 +49,11 @@
 
 <script src="https://cdn.ckeditor.com/ckeditor5/22.0.0/classic/ckeditor.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.26.0/slimselect.min.js"></script>
-<link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.26.0/slimselect.min.css">
-
-
 <script>
     ClassicEditor
         .create( document.querySelector( '#deskripsi' ), {
             removePlugins: [ 'BlockQuote', 'MediaEmbed', 'Table', 'ImageUpload', 'tableColumn' ],
-            placeholder: "Deskripsi Lowongan..."
+            placeholder: "Deskripsi Lowongan...",
             // toolbar: ['Heading', 'Undo', 'Redo', '|', 'Bold', 'Italic', '|', 'bulletedList', 'numberedList', '|', 'Indent', 'Link']
         } )
         .catch( error => {
@@ -61,7 +61,8 @@
         } );
     
     new SlimSelect({
-        select: '#keahlian'
+        select: '#keahlian',
+        placeholder: 'Pilih keahlian yang harus dikuasai'
     })
 
 </script>
