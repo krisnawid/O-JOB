@@ -19,7 +19,7 @@
         <div class="row mt-5">
             @foreach ($pekerjaan as $item)
             <div class="col-md-4 col-sm-6 mb-4">
-                <div class="card">
+                <div class="card rounded-lg">
                     <div class="card-body">
                         <h5>{{$item['judul']}}</h5>
                         <p>{{$item['perusahaan']}}</p>
