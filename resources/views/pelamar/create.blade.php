@@ -11,7 +11,7 @@
             </svg>
         </h1>
         <h4 class="mb-4">Daftar Sebagai Pelamar</h4>
-        <div class="card w-75 shadow">
+        <div class="card rounded-lg w-75 shadow">
             <div class="card-body">
                 <form method="POST" enctype="multipart/form-data">
                     <div class="row">

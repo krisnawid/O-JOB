@@ -11,3 +11,11 @@
         url("/img/login_orange.png") bottom right no-repeat;
     background-size: 50%, 20%, 40%;
 }
+
+.bg-profile {
+    background: url("/img/abu3.png") 90% 0% no-repeat,
+        url("/img/abu3-1.png") 0% 80% no-repeat,
+        url("/img/biru3.png") bottom right no-repeat,
+        url("/img/orange3.png") top left no-repeat;
+    background-size: 15%, 4%, 60%, 20%;
+}
