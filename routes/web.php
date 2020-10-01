@@ -54,3 +54,11 @@ Route::get('/lowongan', function () {
 
     return view('lowongan/index', compact('pekerjaan'));
 });
+
+Route::get('/perusahaan/create', function () {
+    return view('perusahaan/create');
+});
+
+Route::get('/pelamar/create', function () {
+    return view('pelamar/create');
+});

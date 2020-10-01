@@ -13,7 +13,7 @@
                         <img src="{{asset('img/logo.png')}}" alt="Logo" width="50">
                         <span class="ml-2">O-Job</span>
                     </h1>
-                    <div class="card">
+                    <div class="card shadow">
                         <div class="card-body">
                             <form method="POST" class="px-5 py-3">
                                 <div class="form-group">
@@ -39,5 +39,4 @@
         </div>
     </div>
 </div>
-{{-- <img src="{{ asset('img/abu2.png') }}" alt="wow"> --}}
 @endsection
