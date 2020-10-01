@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePerusahaanTable extends Migration
+class CreatePortofolioTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,14 @@ class CreatePerusahaanTable extends Migration
      */
     public function up()
     {
-        Schema::create('perusahaan', function (Blueprint $table) {
+        Schema::create('portofolio', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
-            $table->string('alamat');
-            $table->string('deskripsi');
-            $table->string('web')->nullable();            
-            $table->string('password');
-            $table->string('email');
-            $table->string('logo');
-            $table->rememberToken();
+            $table->string('url');
             $table->timestamps();
+
+            $table->integer('id_pelamar')->unsigned();
+            $table->foreign('id_pelamar')->references('id')->on('pelamar');
         });
     }
 
@@ -34,6 +31,6 @@ class CreatePerusahaanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('perusahaan');
+        Schema::dropIfExists('portofolio');
     }
 }
