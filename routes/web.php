@@ -47,24 +47,57 @@ Route::get('/lowongan', function () {
 
     $pekerjaan = [
         ['judul' => 'Frontend Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur'],
-        ['judul' => 'Frontend Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur'],
-        ['judul' => 'Frontend Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur'],
-        ['judul' => 'Frontend Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur']
+        ['judul' => 'Backend Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur'],
+        ['judul' => 'QA Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur'],
+        ['judul' => 'DevOps Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur']
     ];
 
     return view('lowongan/index', compact('pekerjaan'));
 });
 
-Route::get('/perusahaan', function () {
-    return view('perusahaan/index');
+Route::get('/lowongan/{id}', function ($id) {
+    return view('lowongan/show');
 });
+
+Route::get('/perusahaan/{id}', function ($id) {
+    $pekerjaan = [
+        ['judul' => 'Frontend Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur'],
+        ['judul' => 'Backend Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur'],
+        ['judul' => 'QA Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur'],
+        ['judul' => 'DevOps Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur']
+    ];
+
+    return view('perusahaan/index', compact('pekerjaan'));
+});
+
+Route::get('/perusahaan/{id}/lamaran', function ($id) {
+    $pelamar = [
+        ['nama' => 'John Doe'],
+        ['nama' => 'Jane Doe'],
+        ['nama' => 'Jan Da'],
+    ];
+
+    return view('perusahaan/lamaran/index', compact('pelamar'));
+});
+
 Route::get('/perusahaan/create', function () {
     return view('perusahaan/create');
 });
 
-Route::get('/pelamar', function () {
+Route::get('/pelamar/{id}', function ($id) {
     return view('pelamar/index');
 });
+
+Route::get('/pelamar/{id}/lamaran', function ($id) {
+    $lamaran = [
+        ['judul' => 'Frontend Engineer', 'perusahaan' => 'PT. Indofood', 'status' => 'Diterima'],
+        ['judul' => 'Backend Engineer', 'perusahaan' => 'PT. Indofood', 'status' => 'Ditolak'],
+        ['judul' => 'QA Engineer', 'perusahaan' => 'PT. Indofood', 'status' => 'Pending'],
+        ['judul' => 'DevOps Engineer', 'perusahaan' => 'PT. Indofood', 'status' => 'Pending']
+    ];    
+    return view('pelamar/lamaran/index', compact('lamaran'));
+});
+
 Route::get('/pelamar/create', function () {
     return view('pelamar/create');
 });

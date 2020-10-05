@@ -19,3 +19,8 @@
         url("/img/orange3.png") top left no-repeat;
     background-size: 15%, 4%, 60%, 20%;
 }
+
+.bg-lamaran-perusahaan {
+    background: url("/img/abuoren.png") top left no-repeat;
+    background-size: 25%;
+}
