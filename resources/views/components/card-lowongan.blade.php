@@ -4,9 +4,9 @@
             {{-- <h5>{{$item['judul']}}</h5>
             <p>{{$item['perusahaan']}}</p>
             <p>{{$item['alamat']}}</p> --}}
-            <h5>Tes Judul</h5>
-            <p>Nama Perusahaan</p>
-            <p>Alamat Perusahaan</p>
+            <h5>{{$judul}}</h5>
+            <p>{{$perusahaan}}</p>
+            <p>{{$alamat}}</p>
             <div class="text-right">
                 <a href="#" class="btn btn-light font-weight-bold stretched-link" style="font-size: 0.8rem">LIHAT</a>
             </div>

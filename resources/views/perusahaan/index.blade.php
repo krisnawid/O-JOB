@@ -44,7 +44,20 @@
                 </div>
                 <h4 class="mt-5 mb-4">Lowongan</h4>
                 <div class="row">
-                    <x-card-lowongan></x-card-lowongan>
+                    @foreach ($pekerjaan as $item)
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="card rounded-lg">
+                            <div class="card-body">
+                                <h5>{{$item['judul']}}</h5>
+                                <p>{{$item['alamat']}}</p>
+                                <div class="text-right">
+                                    <a href="#" class="btn btn-light font-weight-bold stretched-link"
+                                        style="font-size: 0.8rem">LIHAT</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
                 </div>
                 {{-- <div class="small text-muted text-center">Belum ada lowongan.</div> --}}
             </div>
