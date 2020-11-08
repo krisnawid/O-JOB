@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LowonganController;
+use App\Http\Controllers\PerusahaanController;
+use App\Http\Controllers\PelamarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,91 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/lowongan');
 
-Route::get('/login', function ()
-{
+Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/lowongan/create', function ()
-{
-    $kategori = [
-        'it' => 'IT', 
-        'marketing' => 'Marketing'
-    ];
+Route::resource('lowongan', LowonganController::class);
 
-    $keahlian = [
-        'FE' => 'Frontend Engineer',
-        'BE' => 'Backend Engineer',
-        'QA' => 'QA Engineer',
-    ];
 
-    $data = [
-        'kategori' => $kategori,
-        'keahlian' => $keahlian
-    ];
+Route::resource('perusahaan', PerusahaanController::class)->only(['create', 'edit']);
+Route::get('/perusahaan/{id}', [PerusahaanController::class, 'index']);
+Route::get('/perusahaan/{id}/lamaran', [PerusahaanController::class, 'lamaran']);
 
-    return view('lowongan/create', compact('data'));
-});
 
-Route::get('/lowongan', function () {
-
-    $pekerjaan = [
-        ['judul' => 'Frontend Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur'],
-        ['judul' => 'Backend Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur'],
-        ['judul' => 'QA Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur'],
-        ['judul' => 'DevOps Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur']
-    ];
-
-    return view('lowongan/index', compact('pekerjaan'));
-});
-
-Route::get('/lowongan/{id}', function ($id) {
-    return view('lowongan/show');
-});
-
-Route::get('/perusahaan/{id}', function ($id) {
-    $pekerjaan = [
-        ['judul' => 'Frontend Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur'],
-        ['judul' => 'Backend Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur'],
-        ['judul' => 'QA Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur'],
-        ['judul' => 'DevOps Engineer', 'perusahaan' => 'PT. Indofood', 'alamat' => 'Pasuruan, Jawa Timur']
-    ];
-
-    return view('perusahaan/index', compact('pekerjaan'));
-});
-
-Route::get('/perusahaan/{id}/lamaran', function ($id) {
-    $pelamar = [
-        ['nama' => 'John Doe'],
-        ['nama' => 'Jane Doe'],
-        ['nama' => 'Jan Da'],
-    ];
-
-    return view('perusahaan/lamaran/index', compact('pelamar'));
-});
-
-Route::get('/perusahaan/create', function () {
-    return view('perusahaan/create');
-});
-
-Route::get('/pelamar/{id}', function ($id) {
-    return view('pelamar/index');
-});
-
-Route::get('/pelamar/{id}/lamaran', function ($id) {
-    $lamaran = [
-        ['judul' => 'Frontend Engineer', 'perusahaan' => 'PT. Indofood', 'status' => 'Diterima'],
-        ['judul' => 'Backend Engineer', 'perusahaan' => 'PT. Indofood', 'status' => 'Ditolak'],
-        ['judul' => 'QA Engineer', 'perusahaan' => 'PT. Indofood', 'status' => 'Pending'],
-        ['judul' => 'DevOps Engineer', 'perusahaan' => 'PT. Indofood', 'status' => 'Pending']
-    ];    
-    return view('pelamar/lamaran/index', compact('lamaran'));
-});
-
-Route::get('/pelamar/create', function () {
-    return view('pelamar/create');
-});
+Route::resource('pelamar', PelamarController::class)->only(['create', 'edit']);
+Route::get('/pelamar/{id}', [PelamarController::class, 'index']);
+Route::get('/pelamar/{id}/lamaran', [PelamarController::class, 'lamaran']);

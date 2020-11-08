@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@include('layouts.include.nav')
 
 @section('content')
 <div class="bg-profile min-vh-100 pb-5">
