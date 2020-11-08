@@ -31,5 +31,6 @@ Route::get('/perusahaan/{id}/lamaran', [PerusahaanController::class, 'lamaran'])
 
 
 Route::resource('pelamar', PelamarController::class)->only(['create', 'edit']);
+Route::get('/pelamar/keahlian', [PelamarController::class, 'keahlian'])->name('skillautocomplete');
 Route::get('/pelamar/{id}', [PelamarController::class, 'index']);
 Route::get('/pelamar/{id}/lamaran', [PelamarController::class, 'lamaran']);

@@ -13,7 +13,19 @@ class PelamarController extends Controller
      */
     public function index()
     {
-        return view('pelamar/index');
+        $data['keahlian'] = [
+            'PHP',
+            'HTML',
+            'CSS'
+        ];
+
+        $data['portofolio'] = [
+            ['judul' => 'Judul', 'web' => 'haloiniurlwebsaya.com', 'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis explicabo quia quibusdam incidunt deserunt fuga molestiae, dolorem quis tempore neque, temporibus dolorum dolore, tempora beatae at atque sapiente illum delectus!'],
+            ['judul' => 'Judul', 'web' => 'haloiniurlwebsaya.com', 'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis explicabo quia quibusdam incidunt deserunt fuga molestiae, dolorem quis tempore neque, temporibus dolorum dolore, tempora beatae at atque sapiente illum delectus!'],
+            ['judul' => 'Judul', 'web' => 'haloiniurlwebsaya.com', 'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis explicabo quia quibusdam incidunt deserunt fuga molestiae, dolorem quis tempore neque, temporibus dolorum dolore, tempora beatae at atque sapiente illum delectus!'],
+        ];
+
+        return view('pelamar/index', compact('data'));
     }
 
     /**

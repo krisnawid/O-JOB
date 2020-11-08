@@ -45,35 +45,142 @@
                     </div>
                 </div>
                 <hr>
-                <h4 class="mt-4 mb-3">Keahlian</h4>
+                <div class="d-flex justify-content-between align-items-center mt-4 mb-3">
+                    <h4>Keahlian</h4>
+                    <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal"
+                        data-target="#addKeahlian">
+                        <h4 class="mb-0">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                            </svg>
+                        </h4>
+                    </button>
+                    <div class="modal fade" id="addKeahlian" tabindex="-1" aria-labelledby="addKeahlian"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addKeahlian">Tambah Keahlian</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <label for="keahlian">Nama Keahlian</label>
+                                            <select name="keahlian" id="keahlian" class="form-control">
+
+                                                @foreach ($data['keahlian'] as $keahlian)
+                                                <option>{{$keahlian}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                    <button type="button" class="btn btn-primary">Tambah</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        @foreach ($data['keahlian'] as $keahlian)
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="mb-0">{{$keahlian}}</p>
+                                <button type="button" class="btn btn-outline-danger btn-sm">
+                                    <h6 class="mb-0">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash"
+                                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                            <path fill-rule="evenodd"
+                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                        </svg>
+                                    </h6>
+                                </button>
+                            </div>
+                        </li>
+                        @endforeach
                     </ul>
                 </div>
-                <h4 class="mt-4 mb-3">Portofolio</h4>
+                <div class="d-flex justify-content-between align-items-center mt-5 mb-3">
+                    <h4>Portofolio</h4>
+                    <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal"
+                        data-target="#addPortofolio">
+                        <h4 class="mb-0">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                            </svg>
+                        </h4>
+                    </button>
+                    <div class="modal fade" id="addPortofolio" tabindex="-1" aria-labelledby="addPortofolio"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addPortofolio">Tambah Portofolio</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <label for="judul">Judul Portofolio</label>
+                                            <input type="text" name="judul" id="judul" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="web">Alamat URL</label>
+                                            <input type="text" name="web" id="web" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="deskripsi">Deskripsi Portofolio</label>
+                                            <textarea type="text" name="deskripsi" id="deskripsi"
+                                                class="form-control"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                    <button type="button" class="btn btn-primary">Tambah</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card">
                     <ul class="list-group list-group-flush">
+                        @foreach ($data['portofolio'] as $portofolio)
                         <li class="list-group-item">
-                            <h5>Judul</h5>
-                            <a href="#" class="text-muted small">haloiniurlwebsaya.com</a>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5>{{$portofolio['judul']}}</h5>
+                                <button type="button" class="btn btn-outline-danger btn-sm">
+                                    <h6 class="mb-0">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash"
+                                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                            <path fill-rule="evenodd"
+                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                        </svg>
+                                    </h6>
+                                </button>
+                            </div>
+                            <a href="#" class="text-muted small">{{$portofolio['web']}}</a>
                             <p class="mt-3">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis explicabo quia
-                                quibusdam incidunt deserunt fuga molestiae, dolorem quis tempore neque, temporibus
-                                dolorum dolore, tempora beatae at atque sapiente illum delectus!
+                                {{$portofolio['deskripsi']}}
                             </p>
                         </li>
-                        <li class="list-group-item">
-                            <h5>Judul</h5>
-                            <a href="#" class="text-muted small">haloiniurlwebsaya.com</a>
-                            <p class="mt-3">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis explicabo quia
-                                quibusdam incidunt deserunt fuga molestiae, dolorem quis tempore neque, temporibus
-                                dolorum dolore, tempora beatae at atque sapiente illum delectus!
-                            </p>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
                 {{-- <div class="small text-muted text-center">Belum ada lowongan.</div> --}}
