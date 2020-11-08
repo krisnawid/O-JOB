@@ -68,7 +68,7 @@ class LowonganController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('lowongan/show');
     }
 
     /**
@@ -79,7 +79,22 @@ class LowonganController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kategori = [
+            'it' => 'IT',
+            'marketing' => 'Marketing'
+        ];
+
+        $keahlian = [
+            'FE' => 'Frontend Engineer',
+            'BE' => 'Backend Engineer',
+            'QA' => 'QA Engineer',
+        ];
+
+        $data = [
+            'kategori' => $kategori,
+            'keahlian' => $keahlian
+        ];
+        return view('lowongan/edit', compact('data'));
     }
 
     /**
